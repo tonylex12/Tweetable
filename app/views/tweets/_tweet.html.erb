@@ -1,0 +1,58 @@
+<div class="tweet-card flex flex-column">
+  <div class="flex">
+    <div class="user-img">
+    <% if tweet.user.avatar.attached? %>
+      <%= link_to user_path(tweet.user) do %>
+        <%= image_tag tweet.user.avatar, class: "avatar" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(tweet.user) do %>
+        <%= image_tag "avatar/default-avatar.png", class: "avatar" %>
+      <% end %>
+    <% end %>
+    </div>
+    <div class="flex flex-column px-1">
+      <p class="text-sm bold"><%= tweet.user.name %> <span class="pink-link tet-sm light">@<%= tweet.user.username%></span></p>
+      <p class="text-xs gray-500"><%= time_ago_in_words(tweet.created_at) %> ago</p>
+    </div>
+  </div>
+  
+  <p class="my-1"><%= tweet.body %></p>
+
+  <div class="flex w-full h-fit-content">
+    <div class="flex flex-start tweet-options">
+      <% if user_signed_in? && policy(tweet).edit? %>
+        <%= link_to tweet, class: "text-decoration-none", data: { 
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+          } do %>
+            <i class="ri-delete-bin-line ri-lg gray-500 mr-1 center-icon"></i>
+          <% end %>
+        <%= link_to edit_tweet_path(tweet), class: "text-decoration-none" do %>
+          <i class="ri-pencil-line ri-lg gray-500 mr-1 center-icon"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="flex flex-end tweet-options flex-end">
+      <%= link_to tweet_path(tweet), class: "text-decoration-none" do %>
+        <i class="ri-chat-1-line ri-lg gray-500 ml-1 center-icon"></i><span class="gray-500 counter"><%= tweet.replies.size%></span>
+      <% end %>
+      <% if user_signed_in? %>
+        <% tweet_liked = Like.find_by(tweet_id: tweet.id, user_id: current_user) %>
+        <% if tweet_liked %>
+          <%= link_to user_like_path(id: tweet_liked.id, user_id: tweet_liked.user_id), class: "text-decoration-none", method: :delete do %>
+            <i class="ri-heart-fill ri-lg pink-link ml-1 center-icon"></i><span class="pink-link counter"><%= tweet.likes.size%></span>
+          <% end %>
+        <% else %>
+          <%= link_to user_likes_path(tweet_id: tweet.id, user_id: current_user), class: "text-decoration-none", method: :post do %>
+            <i class="ri-heart-line ri-lg gray-500 ml-1 center-icon"></i><span class="gray-500 counter"><%= tweet.likes.size%></span>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, class: "text-decoration-none" do %>
+          <i class="ri-heart-line ri-lg gray-500 ml-1 center-icon"></i><span class="gray-500 counter"><%= tweet.likes.size%></span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

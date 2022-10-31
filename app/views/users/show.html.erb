@@ -1,0 +1,51 @@
+<p style="color: green"><%= notice %></p>
+
+<section class="section-sm">
+  <div class="container-sm">
+    <h1 class="head-md text-center mb-1">Profile</h1>
+    <div class="flex-center flex-column">
+      <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar, class: "avatar-img" %>
+      <% else %>
+        <%= image_tag "avatar/default-avatar.png", class: "avatar-img" %>
+      <% end %>
+      
+      <h3 class="bold"><%= @user.name %></h3>
+
+      <p class="gray-500">@<%= @user.username %></p>
+
+
+      <p class="gray-500">Joined on <%= @user.created_at.strftime("%B %d, %Y") %></p>
+
+      <%= link_to "EDIT PROFILE", edit_user_registration_path, class:"button text-decoration-none button--primary fit-content my-1"%>
+
+      <div class="tabbed w-full">
+        <input type="radio" id="tab1" name="css-tabs" checked>
+        <input type="radio" id="tab2" name="css-tabs">
+
+        <ul class="tabs">
+          <li class="tab"><label for="tab1">Tweets (<%= @user.tweets.size %>)</label></li>
+          <li class="tab"><label for="tab2">Likes (<%= @user.likes.size%>)</label></li>
+        </ul>
+
+        <div class="tab-content">
+          <div id="tweets">
+            <% @user.tweets.each do |tweet| %>
+              <%= render tweet %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="tab-content">
+          <div id="likes">
+            <% @user.likes.each do |like| %>
+              <%= render like.tweet %>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<%= form_with url: reply_tweet_path(@tweet), method: :post, html: { :class => "tweet-body"} do |form| %>
+  <% if @tweet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this @tweet from being saved:</h2>
+ 
+      <ul>
+        <% @tweet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="w-full flex flex-column">
+    <%= form.text_area :body, placeholder: "Remember to think before write...", class: "w-full" %>
+    <%= form.submit "TWEET", class: "button button--primary text-decoration-none my-1 new-btn tweet-btn" %>
+  </div>
+<% end %>

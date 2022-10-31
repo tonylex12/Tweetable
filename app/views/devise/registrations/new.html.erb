@@ -1,0 +1,61 @@
+<h2 class="text-center text-xxl gray-900">Create an account</h2>
+<section class="section-sm flex-center flex">
+  <div class="flex flex-center flex-column container-sm session-card">
+    <div class="flex-column flex-center w-full">
+      <p>CONTINUE WITH</p>
+      <div class="w-full" data-turbo="false">
+        <%= button_to "GITHUB" , omniauth_authorize_path(resource_name, :github), method: :post, class: "button uppercase text-decoration-none button--primary w-full social-btn" %>
+        <%= button_to "GOOGLE" , omniauth_authorize_path(resource_name, :google_oauth2), method: :post, class: "button uppercase text-decoration-none button--primary w-full social-btn" %>
+        <%= button_to "TWITTER" , omniauth_authorize_path(resource_name, :twitter), method: :post, class: "button uppercase text-decoration-none button--primary w-full social-btn" %>
+        <%= button_to "FACEBOOK", omniauth_authorize_path(resource_name, :facebook), method: :post, class: "button uppercase text-decoration-none button--primary w-full social-btn" %>
+      </div>
+      <span class="overline"> OR</span>
+    </div>
+    <div class="w-full flex flex-column flex-center">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:class => 'login-form'}) do |f| %>
+        <div class="login-form mb-1">
+          <%= f.label :username, "USERNAME" %><br />
+          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+        </div>
+
+
+        <div class="login-form mb-1">
+          <%= f.label :email, "EMAIL" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="login-form mb-1">
+          <%= f.label :name, "NAME" %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "username" %>
+        </div>
+
+        <div class="mb-1 flex flex-column">
+          <%= f.label :avatar, "AVATAR" %>
+          <%= f.file_field :avatar, autofocus: true, autocomplete: "cover" %>
+        </div>
+
+        <div class="login-form mb-1">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "********" %>
+        </div>
+
+        <div class="login-form mb-1">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "********" %>
+        </div>
+
+         <div>
+          <%= f.submit "SIGN UP", class: "button button--primary w-full regular" %>
+        </div>
+
+        <%- if controller_name != 'sessions' %>
+          <div class="flex flex-column flex-center">
+            <span class="mt-1">Already a member?</span>
+            <%= link_to "Sign in", new_session_path(resource_name), class: "back text-decoration-none" %>
+          </div>
+        <% end %>
+
+      <% end %>
+    </div>
+  </div>
+</section>

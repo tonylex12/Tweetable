@@ -1,0 +1,7 @@
+<%= form_with(model: @tweet, html: { :class => "tweet-body"}) do |form| %>
+  <div class="w-full flex flex-column">
+    <%= form.text_area :body, placeholder: "Remember to think before write...", class: "w-full" %>
+    <%= form.submit "TWEET", class: "button button--primary text-decoration-none my-1 new-btn tweet-btn" %>
+  </div>
+
+<% end %>

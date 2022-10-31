@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<section class="section-sm">
+  <div class="container-sm">
+    <h1 class="head-md mb-2 text-center">Tweet Detail</h1>
+    <%= render @tweet %>
+    
+    <% if user_signed_in? %>
+      <%= render 'tweets/replies_form' %>
+    <% end %>
+  </div>
+
+  <% if @tweet.replies.any? %>
+    <div class="container-sm">
+      <div id="replies">
+        <% @tweet.replies.each do |tweet| %>
+          <%= render tweet %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+</section>
+
+

@@ -1,0 +1,110 @@
+/* Buttons base - START */
+.button {
+  border: none;
+  border-radius: 0.5em;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: 500;
+  text-align: center;
+  text-transform: capitalize;
+  padding: .75em 1em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: .5em;
+}
+
+.button--xs {
+  font-size: .6em;
+  padding: .5em .75em;
+}
+
+.button--sm {
+  font-size: .875em;
+  padding: .5em .75em;
+}
+
+.button--lg {
+  font-size: 1.2em;
+  padding: .75em 1.5em;
+}
+
+/* Buttons base - END */
+
+/* Buttons Default - START */
+.button--default {
+  background-color: var(--gray-100);
+  color: var(--primary-darker);
+}
+
+.button--default:hover {
+  background-color: var(--gray-300);
+}
+
+.button--default:active {
+  background-color: var(--gray-400);
+}
+
+.button--default:focus {
+  outline: 2px solid var(--outline-primary);
+  outline-offset: 1px;
+}
+
+.button--default:disabled {
+  opacity: 0.6;
+  cursor: default;
+  background-color: var(--gray-200);
+}
+/* Buttons Default - END */
+
+/* Buttons primary - START */
+.button--primary {
+  background-color: var(--primary-300);
+  color: var(--white);
+}
+
+.button--primary:hover {
+  background-color: var(--pink-500);
+}
+
+.button--primary:active {
+  background-color: var(--gray-800);
+}
+
+.button--primary:focus {
+  outline: 2px solid var(--outline-primary);
+  outline-offset: 1px;
+}
+
+.button--primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+  background-color: var(--primary-dark);
+}
+/* Buttons primary - END */
+
+/* Buttons secondary - START */
+.button--secondary {
+  background-color: var(--gray-100);
+  color: var(--black);
+}
+
+.button--secondary:hover {
+  background-color: var(--gray-300);
+}
+
+.button--secondary:active {
+  background-color: var(--gray-400);
+}
+
+.button--secondary:focus {
+  outline: 2px solid var(--gray-500);
+  outline-offset: 1px;
+}
+
+.button--secondary:disabled {
+  opacity: 0.6;
+  cursor: default;
+  background-color: var(--primary-light);
+}
+/* Buttons secondary - END */

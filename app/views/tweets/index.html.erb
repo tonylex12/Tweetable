@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<section class="section-sm">
+  <div class="container-sm">
+    <h1 class="head-md mb-1 text-center">Home</h1>
+
+    <% if user_signed_in? %>
+      <%= render 'tweets/form' %>
+    <% end %>
+
+    <div id="tweets">
+      <% @tweets.where(replied_to: nil).order(created_at: :desc).each do |tweet| %>
+        <%= render tweet %>
+      <% end %>
+    </div>
+  </div>
+</section>
+

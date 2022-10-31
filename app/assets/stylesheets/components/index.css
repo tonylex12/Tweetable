@@ -1,0 +1,169 @@
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--gray-100);
+}
+
+.container-xl{
+  flex-grow: 1;
+  width: 100%;
+}
+
+textarea {
+  width: 345px;
+  height: 90px;
+}
+
+.logo{
+  display: flex;
+  
+}
+
+.somesplash__container .button{
+  display: inline;
+}
+
+.text-gray {
+  color: var(--gray-600);
+}
+
+.img-show {
+  height: 328px;
+  width: 330px;
+  object-fit: cover;
+}
+
+.somesplash__group img {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.somesplash__group-img img {
+  height: 250px;
+}
+
+.somesplash__text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  word-break: break-word;
+}
+
+.somesplash__actions{
+  display: flex;
+  justify-content: right;
+}
+
+.shadow-text{
+  box-shadow: 0 3px 8px rgba(50, 50, 50, 0.20);
+}
+
+.somesplash__text{
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.somesplash__text-photo{
+  background-color: var(--gray-100);
+}
+
+.comment {
+  border-top: 1px solid var(--gray-300);
+}
+
+.footer__group{
+  display: flex;
+  justify-content: center;
+}
+
+.footer__item{
+  display: flex;
+  align-items: center;
+}
+
+.somesplash__group {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.somesplash__group .somesplash__item{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.somesplash__group .somesplash__item .somesplash__descriptions{
+  height: 100%;
+}
+
+.somesplash__actions-item{
+  line-height: unset;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.somesplash__actions-photo{
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.button-primary-width{
+  width: 15rem;
+}
+
+.form__container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form__container h2{
+  /* font-weight: normal; */
+}
+
+.error{
+  color: red;
+  font-weight: 700;
+}
+
+.error-group{
+  margin: 0;
+}
+
+.comments__item{
+  border-top: 2px solid #D3D3D3;
+}
+
+.comment__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 48rem) {
+  .somesplash__group{
+    gap: unset;
+    margin-top: 1rem;
+  }
+  .somesplash__group .somesplash__item {
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  .somesplash__group .somesplash__item:last-child{
+    margin-bottom: 0;
+  }
+  .button-primary-width, .form__group{
+    width: 100%;
+  }
+  .img-show {
+    width: 100%;
+  }
+}

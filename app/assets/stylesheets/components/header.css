@@ -1,0 +1,140 @@
+.header {
+  background-color: var(--gray-100);
+}
+
+.header__logo {
+  color: var(--gray-900)
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.navbar--links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.navbar--links .link {
+  text-decoration: none;
+  color: var(--pink-600);
+  padding: 0.5em 0.75em;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar--links .link:hover {
+  background-color: var(--pink-100);
+}
+
+.navbar--links .link:focus {
+  outline: 2px solid var(--pink-800);
+  outline-offset: 2px;
+}
+
+#menu-mobile,
+#toggle-close,
+#toggle-open {
+  display: none;
+}
+
+.alert_not_logged_in,
+.flash,
+.alert
+{
+  position: absolute;
+  left: 0; 
+  right: 0;
+  top: 20px;
+  margin-left: auto; 
+  margin-right: auto;
+  max-width: 360px;
+  min-height: 96px;
+  background-color: var(--gray-200);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px;
+  border: 2px solid var(--gray-400);
+}
+.alert_not_logged_in:hover
+{
+  transform: scale(1.1);
+  transition: ease 0.75s;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+  .header--menu-mobile {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* position: relative; */
+  }
+
+  .navbar,
+  #toggle-close,
+  #toggle-open {
+    display: block;
+    
+  }
+
+  .navbar--links {
+    flex-direction: column;
+    gap: 0.5em;
+    margin-top: 0px;
+    padding-bottom: 1rem;
+    border: 1px solid var(--gray-400);
+  }
+
+  .navbar--links li:last-child {
+    width: 100%;
+  }
+
+  .navbar--links li:nth-last-child(2) {
+    width: 100%;
+  }
+
+
+  .expandable {
+    display: none;
+  }
+
+  #menu-mobile:checked ~ .expandable {
+    display: flex;
+  }
+
+  #toggle-close,
+  #toggle-open {
+    position: absolute;
+    top: 2.25rem;
+    right: .75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #menu-mobile:checked ~  #toggle-open,
+  #menu-mobile:not(:checked) ~ #toggle-close {
+    opacity: 0;
+  }
+  
+  #toggle-close,
+  #toggle-open  {
+    transition: opacity .5s linear;
+  }
+}
