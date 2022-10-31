@@ -3,13 +3,6 @@
   <div class="flex flex-center flex-column container-sm session-card">
     <div class="flex-column flex-center w-full">
       <p>CONTINUE WITH</p>
-      <div class="w-full" data-turbo="false">
-        <%= button_to "GITHUB" , omniauth_authorize_path(resource_name, :github), method: :post, class: "button uppercase text-decoration-none button--primary w-full social-btn" %>
-        <%= button_to "GOOGLE" , omniauth_authorize_path(resource_name, :google_oauth2), method: :post, class: "button uppercase text-decoration-none button--primary w-full social-btn" %>
-        <%= button_to "TWITTER" , omniauth_authorize_path(resource_name, :twitter), method: :post, class: "button uppercase text-decoration-none button--primary w-full social-btn" %>
-        <%= button_to "FACEBOOK", omniauth_authorize_path(resource_name, :facebook), method: :post, class: "button uppercase text-decoration-none button--primary w-full social-btn" %>
-      </div>
-      <span class="overline"> OR</span>
     </div>
     <div class="w-full flex flex-column flex-center">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:class => 'login-form'}) do |f| %>
